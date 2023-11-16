@@ -13,8 +13,8 @@ class CursoController extends Controller
         //$nombre = 'pepe';
     //$lista = ['perro','gato','avestruz'];
         $diccionario = [['num' => 'uno'],['num' => 'dos'],['num' => 'tres']];
-        return view('principal', ['dic' => $diccionario]);//no estamos seguros de si siempre se devuelve
-    }
+        return view('auth.login', ['dic' => $diccionario]);//no estamos seguros de si siempre se devuelve
+    } //auth.login es la vista oficial de laravel para el login
 
     public function create(){ //el de formularios para crear
         $doce = 12;

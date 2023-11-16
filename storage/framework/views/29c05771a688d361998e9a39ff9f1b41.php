@@ -8,22 +8,35 @@
 <?php endif; ?>
 <?php $component->withAttributes(['titulo' => 'Principal','meta-description' => 'Pagina principal','suma' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(2+3)]); ?>
     <h1>Principal</h1>
-    <?php dump($dic); ?> <!--dump es como una especie de print-->
-    <p>estamos probando</p>
-
-    <p><?php echo e('Esto lo hacemos con BLADE'); ?></p>
-    <?php $__currentLoopData = $dic; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    <?php echo e($val['num']); ?>
-
-    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    
+    <h1>Vamos a iniciar sesión</h1>
+    
+    <div class="container">
+        <form action="/validar" method="post" class="aesthetic-form">
+            <?php echo csrf_field(); ?>
+            <div class="form-group">
+                <label for="nombre" class="aesthetic-label">Usuario:</label>
+                <input type="text" class="form-control aesthetic-input" name="nombre"/>
+            </div>
+            <div class="form-group">
+                <label for="password" class="aesthetic-label">Contraseña:</label>
+                <input type="password" class="form-control aesthetic-input" name="password">
+            </div>
+            <button type="submit" class="btn btn-primary aesthetic-btn">Enviar</button>
+        </form>
+    </div>
+    
+    
 
     <?php
     //Código de PHP embebido
-    print "<p>Esto lo hacemos con PHP</p>";
-    foreach ( $dic as $val) {
-        print $val['num'].' ' ;
-    }
-?>
+    //print "<p>Esto lo hacemos con PHP</p>";
+    //foreach ( $dic as $val) {
+    //    print $val['num'].' ' ;
+    //}
+    ?> 
+
+    
  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>

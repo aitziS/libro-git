@@ -10,12 +10,24 @@ class UsuarioController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function login(Request $request)
     {
-        $usuarios = DB::table('usuario')->get(); //la clase DB obtiene en un objeto el contenido de la tabla usuario. Toda la tabla está en $usuarios
-        return view('usuarios', ['users' => $usuarios]); //a la vista le paso la lista de usuarios
+        $nombre = $request->input('nombre');
+        $password = $request->input('password');//cafe
+        $usuarios = DB::table('usuario')->get();
+    
+        foreach ($usuarios as $usuario) {                           
+            if ($nombre == $usuario->usuario) {
+                // Si encontramos una coincidencia, retornamos la vista 'entrada'  && password_verify($password, $usuario->clave)
+                return view('entrada');
+            }
+        }
+    
+        // Si no encontramos coincidencias después de revisar todos los usuarios, retornamos la vista 'noentrada'
+        return view('noentrada');
     }
-
+    
+    
     /**
      * Show the form for creating a new resource.
      */
@@ -64,3 +76,7 @@ class UsuarioController extends Controller
         //
     }
 }
+
+
+
+
