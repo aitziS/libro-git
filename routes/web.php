@@ -5,6 +5,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CursoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 
 /*
@@ -35,9 +38,7 @@ Route::get("/blog",[CursoController::class, 'show'])->name("blg");
 
 Route::get('home', HomeController::class)->name('home');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard',[CursoController::class, 'show'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/cursos/{persona}', [CursoController::class, 'persona']);
 

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 /*controlador múltiple*/
 
 class CursoController extends Controller
@@ -22,7 +24,8 @@ class CursoController extends Controller
     }
 
     public function show(){ //el de mostrar algo
-        return view('blog'); 
+        $users = DB::table('users')->get();
+        return view('dashboard', ['users'=>$users]); 
     }
 
     public function curso($curso){ //el de mostrar algo
