@@ -1,2 +1,4 @@
 chacon, s. and straub, b. pro git. apress
 loeliger y más cosas que van a dar conflicto
+ryan hodson ry's git tutorial cosas
+
